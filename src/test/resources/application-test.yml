@@ -1,0 +1,14 @@
+# Replaces Kafka with in-memory endpoints so route logic can be tested without a broker.
+orderhub:
+  high-value-threshold: 1000.00
+  redelivery:
+    maximum-redeliveries: 2
+    redelivery-delay-ms: 1
+    back-off-multiplier: 1.0
+  endpoints:
+    inbound: mock:inbound
+    inbound-consumer: direct:inbound
+    standard: mock:standard
+    express: mock:express
+    review: mock:review
+    dead-letter: mock:dlq

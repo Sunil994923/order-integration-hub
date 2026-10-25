@@ -1,0 +1,7 @@
+{
+  "customerId": "customer-7",
+  "shippingMethod": "STANDARD",
+  "items": [
+    { "sku": "BOOK-1984", "quantity": 3, "unitPrice": 12.99 }
+  ]
+}

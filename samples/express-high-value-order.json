@@ -1,0 +1,8 @@
+{
+  "customerId": "customer-42",
+  "shippingMethod": "EXPRESS",
+  "items": [
+    { "sku": "LAPTOP-15", "quantity": 1, "unitPrice": 1499.00 },
+    { "sku": "MOUSE-01", "quantity": 2, "unitPrice": 25.50 }
+  ]
+}

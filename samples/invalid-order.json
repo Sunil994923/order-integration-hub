@@ -1,0 +1,7 @@
+{
+  "customerId": "",
+  "shippingMethod": "STANDARD",
+  "items": [
+    { "sku": "bad sku", "quantity": 0, "unitPrice": -1 }
+  ]
+}

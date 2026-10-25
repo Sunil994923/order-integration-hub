@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: order-integration-hub
+  mvc:
+    problemdetails:
+      enabled: true
+
+server:
+  port: ${SERVER_PORT:8080}
+
+camel:
+  main:
+    name: order-integration-hub
+  component:
+    kafka:
+      brokers: ${KAFKA_BROKERS:localhost:9092}
+
+orderhub:
+  high-value-threshold: ${ORDERHUB_HIGH_VALUE_THRESHOLD:1000.00}
+  redelivery:
+    maximum-redeliveries: 3
+    redelivery-delay-ms: 1000
+    back-off-multiplier: 2.0
+  endpoints:
+    inbound: kafka:orders.inbound
+    inbound-consumer: kafka:orders.inbound?groupId=order-integration-hub&autoOffsetReset=earliest
+    standard: kafka:orders.standard
+    express: kafka:orders.express
+    review: kafka:orders.review
+    dead-letter: kafka:orders.dlq
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,camelroutes
+  endpoint:
+    health:
+      probes:
+        enabled: true
